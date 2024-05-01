@@ -12,8 +12,12 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+  app.UseSwagger();
+  app.UseSwaggerUI(c =>
+  {
+    c.EnableTryItOutByDefault();
+    c.InjectStylesheet("SwaggerDark.css");
+  });
 }
 
 app.UseHttpsRedirection();
